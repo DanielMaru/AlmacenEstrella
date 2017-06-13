@@ -2,62 +2,59 @@ package net.codejava.spring.modelo;
 
 public class Venta{
 	
-	private int Id;
-	private String Cajero;
-	private String FechasVenta;
-	private int Estado; 
+	private int id;
+	private String cajero;
+	private String fechasVenta;
+	private int estado; 
+	private int total;
 	
 	
 
 	public Venta() {
 	}
-	public Venta(String Cajero, String FechasVenta) {
-		this.Cajero = Cajero;
-		this.FechasVenta = FechasVenta;
+	public Venta(String cajero, String fechasVenta) {
+		this.cajero = cajero;
+		this.fechasVenta = fechasVenta;
 
 		
 	}
 
-	public Venta(String Cajero, String FechasVenta,int Estado) {
-		this.Cajero = Cajero;
-		this.FechasVenta = FechasVenta;
-		this.Estado = Estado;
-	
-		
-		
-		
+	public Venta(String cajero, String fechasVenta,int estado,int total) {
+		this.cajero = cajero;
+		this.fechasVenta = fechasVenta;
+		this.estado = estado;
+			
 	}
-
 	public int getId() {
-		return Id;
+		return id;
 	}
-
-	public void setId(int Id) {
-		this.Id = Id;
+	public void setId(int id) {
+		this.id = id;
 	}
-
 	public String getCajero() {
-		return Cajero;
+		return cajero;
 	}
-
-	public void setCajero(String Cajero) {
-		this.Cajero = Cajero;
+	public void setCajero(String cajero) {
+		this.cajero = cajero;
 	}
-
 	public String getFechasVenta() {
-		return FechasVenta;
+		return fechasVenta;
 	}
-
-	public void setFechasVenta(String FechasVenta) {
-		this.FechasVenta = FechasVenta;
+	public void setFechasVenta(String fechasVenta) {
+		this.fechasVenta = fechasVenta;
+	}
+	public int getEstado() {
+		return estado;
+	}
+	public void setEstado(int estado) {
+		this.estado = estado;
+	}
+	public int getTotal() {
+		return total;
+	}
+	public void setTotal(int total) {
+		this.total = total;
 	}
 	
-	public int getEstado() {
-		return Estado;
-	}
-
-	public void setEstado(int Estado) {
-		this.Estado = Estado;
-	}
 	
 }
