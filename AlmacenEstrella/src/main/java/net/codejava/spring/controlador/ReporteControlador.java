@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import net.codejava.spring.modelo.Producto;
 import net.codejava.spring.modelo.Venta;
 import net.codejava.spring.negocio.ReporteNegocio;
 
@@ -31,13 +32,19 @@ public class ReporteControlador {
 	}
 	
 	@RequestMapping(value="/reporte")
-	public ModelAndView listar(ModelAndView model) throws IOException{
+	public ModelAndView listarVentas(ModelAndView model) throws IOException{
 		Calendar fecha = new GregorianCalendar();
 		int mes = fecha.get(Calendar.MONTH) + 1;
 		List<Venta> listaVentas = reporteNegocio.listarVentas(mes);
+		int sumaTotal = reporteNegocio.calcularTotal(listaVentas);
+		
+		List<Producto> listaProducto = reporteNegocio.listarProductos();
+		
 		model.addObject("listaVentas", listaVentas);
+		model.addObject("listaProducto", listaProducto);
+		model.addObject("sumaTotal", Integer.toString(sumaTotal));
 		model.setViewName("VistaReporte");
-
+		
 		return model;
 	}
 }

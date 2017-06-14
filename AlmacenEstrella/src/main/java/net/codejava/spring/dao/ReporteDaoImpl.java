@@ -44,8 +44,22 @@ public class ReporteDaoImpl implements ReporteDao{
 
 	@Override
 	public List<Producto> listarProductos() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "SELECT * FROM productos WHERE cantidad < 100";
+		List<Producto> listaProductos = jdbcTemplate.query(sql, new RowMapper<Producto>() {
+
+			@Override
+			public Producto mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Producto producto = new Producto();
+	
+				producto.setId(rs.getInt("Id"));
+				producto.setNombre(rs.getString("Nombre"));
+				producto.setCantidad(rs.getInt("Cantidad"));
+				
+				return producto;
+			}
+			
+		});
+		return listaProductos;
 	}
 
 }

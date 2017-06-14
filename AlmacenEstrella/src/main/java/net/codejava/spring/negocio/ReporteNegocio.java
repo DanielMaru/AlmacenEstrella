@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import net.codejava.spring.dao.ReporteDao;
+import net.codejava.spring.modelo.Producto;
 import net.codejava.spring.modelo.Venta;
 
 @Service
@@ -51,5 +52,17 @@ public class ReporteNegocio {
 			break;
 		}
 		return numeroMes;
+	}
+	
+	public int calcularTotal(List<Venta> listaVentas){
+		int suma = 0;
+		for(int i=0; i<listaVentas.size(); i++){
+			suma = suma + listaVentas.get(i).getTotal();
+		}
+		return suma;
+	}
+	
+	public List<Producto> listarProductos() {
+		return reporteDao.listarProductos();
 	}
 }

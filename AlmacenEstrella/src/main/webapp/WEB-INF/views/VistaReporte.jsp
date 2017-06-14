@@ -82,7 +82,7 @@
 			</table>
 	   </div>
 	        
-	     <h3>TOTAL: <span class="label label-default">143.9000000087</span></h3>
+	     <h3>TOTAL: <span class="label label-default">${sumaTotal}</span></h3>
 	      
 	        
       
