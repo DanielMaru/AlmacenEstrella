@@ -1,5 +1,7 @@
 package net.codejava.spring.modelo;
 
+import java.util.List;
+
 public class Venta{
 	
 	private int id;
@@ -7,22 +9,25 @@ public class Venta{
 	private String fechasVenta;
 	private int estado; 
 	private int total;
+	private List<Producto> listaProductos;
 	
 	
 
 	public Venta() {
 	}
-	public Venta(String cajero, String fechasVenta) {
+	public Venta(String cajero, String fechasVenta,List<Producto> listaProductos) {
 		this.cajero = cajero;
 		this.fechasVenta = fechasVenta;
+		this.listaProductos= listaProductos;
 
 		
 	}
 
-	public Venta(String cajero, String fechasVenta,int estado,int total) {
+	public Venta(String cajero, String fechasVenta,int estado,int total,List<Producto> listaProductos) {
 		this.cajero = cajero;
 		this.fechasVenta = fechasVenta;
 		this.estado = estado;
+		this.listaProductos= listaProductos;
 			
 	}
 	public int getId() {
@@ -54,6 +59,12 @@ public class Venta{
 	}
 	public void setTotal(int total) {
 		this.total = total;
+	}
+	public List<Producto> getListaProductos() {
+		return listaProductos;
+	}
+	public void setListaProductos(List<Producto> listaProductos) {
+		this.listaProductos = listaProductos;
 	}
 	
 	
