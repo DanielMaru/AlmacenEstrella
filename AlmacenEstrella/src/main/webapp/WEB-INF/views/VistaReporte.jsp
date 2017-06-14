@@ -12,7 +12,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
-    <body>
+    <body >
+      
+
       
       <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -90,8 +92,37 @@
     
     
     <div id="menu1" class="tab-pane fade">
-      <h3>Menu 1</h3>
-      tabla ventas
+    
+    <h3>Reporte Productos</h3>
+      
+    
+      
+      <div  class="col-md-6 col-md-offset-3" border="3">
+	           <table class="table table-bordered table-striped " id="tableDepart">
+	        	<th>ID</th>
+	        	<th>Nombre</th>
+	        	<th>Cantidad</th>
+	        	
+				<c:forEach var="producto" items="${listaProducto}" varStatus="status">
+	        	<tr>
+	        		<td>${producto.id}</td>
+					<td>${producto.nombre}</td>
+					<td>${producto.cantidad}</td>
+		          							
+							
+	        	</tr>
+				</c:forEach>	        	
+			</table>
+	   </div>
+	        
+	      
+	        
+      
+    </div>
+    
+     
+     
+     
     </div>
         
   </div>
