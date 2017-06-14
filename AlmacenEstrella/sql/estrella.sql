@@ -43,7 +43,7 @@ CREATE TABLE `productos` (
   `FechaIngreso` datetime NOT NULL,
   `Descripcion` varchar(100) NOT NULL,
   `Precio` int(11) NOT NULL,
-  `Estado` int(11) NOT NULL,
+  `Estado` int(11) NOT NULL DEFAULT '0',
   `Cantidad` int(11) NOT NULL,
   `IdCategoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
