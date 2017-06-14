@@ -2,10 +2,10 @@
 -- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 13, 2017 at 11:30 PM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 14-06-2017 a las 17:40:31
+-- Versión del servidor: 10.1.21-MariaDB
+-- Versión de PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `estrella`
+-- Base de datos: `estrella`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorias`
+-- Estructura de tabla para la tabla `categorias`
 --
 
 CREATE TABLE `categorias` (
@@ -31,10 +31,19 @@ CREATE TABLE `categorias` (
   `Nombre` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `categorias`
+--
+
+INSERT INTO `categorias` (`Id`, `Nombre`) VALUES
+(1, 'Hogar'),
+(2, 'Tecnologia'),
+(3, 'Moda');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `productos`
+-- Estructura de tabla para la tabla `productos`
 --
 
 CREATE TABLE `productos` (
@@ -51,7 +60,7 @@ CREATE TABLE `productos` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `productosventas`
+-- Estructura de tabla para la tabla `productosventas`
 --
 
 CREATE TABLE `productosventas` (
@@ -63,36 +72,36 @@ CREATE TABLE `productosventas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ventas`
+-- Estructura de tabla para la tabla `ventas`
 --
 
 CREATE TABLE `ventas` (
   `Id` int(11) NOT NULL,
   `Cajero` varchar(100) NOT NULL,
-  `FechaVenta` datetime NOT NULL  DEFAULT CURRENT_TIMESTAMP,
+  `FechaVenta` datetime NOT NULL,
   `Total` int(11) NOT NULL,
   `Estado` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `categorias`
+-- Indices de la tabla `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`Id`);
 
 --
--- Indexes for table `productos`
+-- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`Id`),
   ADD KEY `IdCategoria` (`IdCategoria`);
 
 --
--- Indexes for table `productosventas`
+-- Indices de la tabla `productosventas`
 --
 ALTER TABLE `productosventas`
   ADD KEY `IdProducto` (`IdProducto`),
@@ -100,32 +109,32 @@ ALTER TABLE `productosventas`
   ADD KEY `IdVenta_2` (`IdVenta`);
 
 --
--- Indexes for table `ventas`
+-- Indices de la tabla `ventas`
 --
 ALTER TABLE `ventas`
   ADD PRIMARY KEY (`Id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `ventas`
+-- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `categorias`
+-- Filtros para la tabla `productos`
 --
-ALTER TABLE `categorias`
-  ADD CONSTRAINT `categorias_ibfk_1` FOREIGN KEY (`Id`) REFERENCES `productos` (`IdCategoria`);
+ALTER TABLE `productos`
+  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`IdCategoria`) REFERENCES `categorias` (`Id`);
 
 --
--- Constraints for table `productosventas`
+-- Filtros para la tabla `productosventas`
 --
 ALTER TABLE `productosventas`
   ADD CONSTRAINT `productosventas_ibfk_1` FOREIGN KEY (`IdProducto`) REFERENCES `productos` (`Id`),
