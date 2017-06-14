@@ -5,6 +5,8 @@ public class Categoria {
 	private int id;
 	private String nombre;
 	
+	public Categoria() {
+	}
 	
 	public Categoria(int id, String nombre) {
 		
@@ -17,6 +19,7 @@ public class Categoria {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 	public String getNombre() {
 		return nombre;
 	}

@@ -7,7 +7,7 @@ public class Producto {
 	private int fechaIngreso;
 	private String descripcion;
 	private int precio;
-	private boolean estado;
+	private int estado;
 	private int cantidad;
 	private Categoria categoria;
 	
@@ -16,7 +16,7 @@ public class Producto {
 		
 	}	
 
-	public Producto(int id, int fechaIngreso, String descripcion, int precio, boolean estado, int cantidad,
+	public Producto(int id, int fechaIngreso, String descripcion, int precio, int estado, int cantidad,
 			String nombre, Categoria categoria) {
 		
 		this.id = id;
@@ -69,11 +69,11 @@ public class Producto {
 		this.precio = precio;
 	}
 
-	public boolean isEstado() {
+	public int getEstado() {
 		return estado;
 	}
 
-	public void setEstado(boolean estado) {
+	public void setEstado(int estado) {
 		this.estado = estado;
 	}
 
