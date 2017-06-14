@@ -2,6 +2,7 @@ package net.codejava.spring.negocio;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import net.codejava.spring.dao.ReporteDao;
@@ -12,7 +13,16 @@ public class ReporteNegocio {
 
 	private ReporteDao reporteDao;
 	
-	public List<Venta> listarVentas(String mes) {
+	@Autowired
+	public ReporteNegocio(ReporteDao reporteDao) {
+		this.reporteDao = reporteDao;
+	}
+
+	public List<Venta> listarVentas(int numeroMes) {
+		return reporteDao.listarVentas(numeroMes);
+	}
+	
+	public int convertirMes(String mes){
 		int numeroMes = 0;
 		switch (mes){
 			case "Enero": numeroMes = 1;
@@ -40,8 +50,6 @@ public class ReporteNegocio {
 			case "Diciembre": numeroMes = 12;
 			break;
 		}
-		
-		return reporteDao.listarVentas(numeroMes);
-		
+		return numeroMes;
 	}
 }

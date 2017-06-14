@@ -1,6 +1,8 @@
 package net.codejava.spring.controlador;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,14 +30,14 @@ public class ReporteControlador {
 		return model;
 	}
 	
-	@RequestMapping(value="/reporte", method = RequestMethod.GET)
-	public ModelAndView listar(HttpServletRequest request) throws IOException{
-		String mes = request.getParameter("mes");
+	@RequestMapping(value="/reporte")
+	public ModelAndView listar(ModelAndView model) throws IOException{
+		Calendar fecha = new GregorianCalendar();
+		int mes = fecha.get(Calendar.MONTH) + 1;
 		List<Venta> listaVentas = reporteNegocio.listarVentas(mes);
-		ModelAndView model = new ModelAndView("Reporte");
 		model.addObject("listaVentas", listaVentas);
 		model.setViewName("VistaReporte");
-		
+
 		return model;
 	}
 }
