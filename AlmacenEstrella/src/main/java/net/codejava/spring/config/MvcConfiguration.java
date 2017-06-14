@@ -12,6 +12,13 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import net.codejava.spring.dao.ProductoDAO;
+import net.codejava.spring.dao.ProductoDAOImpl;
+import net.codejava.spring.dao.ReporteDao;
+import net.codejava.spring.dao.ReporteDaoImpl;
+import net.codejava.spring.dao.VentasDAO;
+import net.codejava.spring.dao.VentasDAOImpl;
+
 @Configuration
 @ComponentScan(basePackages="net.codejava.spring")
 @EnableWebMvc
@@ -36,11 +43,24 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/estrella");
 		dataSource.setUsername("root");
-		dataSource.setPassword("");
+		dataSource.setPassword("Admin");
 		
 		return dataSource;
 	}
 	
+	@Bean
+	public VentasDAO getVentasDao() {
+		return new VentasDAOImpl(getDataSource());
+	}
 	
+	@Bean
+	public ReporteDao getReporteDao() {
+		return new ReporteDaoImpl(getDataSource());
+	}
+	
+	@Bean
+	public ProductoDAO getProductoDao(){
+		return new ProductoDAOImpl(getDataSource());
+	}
 }
 	
