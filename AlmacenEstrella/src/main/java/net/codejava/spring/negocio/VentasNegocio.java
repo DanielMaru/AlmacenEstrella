@@ -14,12 +14,12 @@ import net.codejava.spring.modelo.Producto;
 import net.codejava.spring.modelo.Venta;
 
 @Service
-public class Ventanegocio {
+public class VentasNegocio {
 	
 	private VentasDAO ventasDAO;
 	
 	@Autowired
-	public Ventanegocio(VentasDAO VentasDAO) {
+	public VentasNegocio(VentasDAO VentasDAO) {
 		this.ventasDAO = VentasDAO;
 	}
 
