@@ -33,7 +33,7 @@ public class VentasDAOImpl implements VentasDAO{
 					+"VALUES(?,?,?)";
 			jdbcTemplate.update(sql,venta.getCajero(),date,venta.getTotal());
 			
-			
+			//Insertar Productos
 			
 		}
 		return retorno;

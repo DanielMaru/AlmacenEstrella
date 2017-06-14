@@ -15,7 +15,7 @@ public interface VentasDAO {
 	 * @param venta, objeto con la información a insertar
 	 * @return true si la operación se ejecuta exitosamente, de lo contrario false
 	 */
-	public boolean guardar(Venta venta) throws Exception;
+	public boolean guardar(Venta venta);
 	
 	/*
 	 * Método para eliminar logicamente una venta de la base de datos
@@ -23,5 +23,12 @@ public interface VentasDAO {
 	 * @return true si la operación se ejecuta exitosamente, de lo contrario false
 	 */
 	public boolean eliminadoLogico(int id);
+	
+	/*
+	 * Método para modificar los datos de una venta en la base de datos
+	 * @param venta
+	 * @return true si la operación se ejecuta exitosamente, de lo contrario false
+	 */
+	public boolean modificar(Venta venta);
 	
 }
