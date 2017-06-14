@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import net.codejava.spring.modelo.Producto;
 import net.codejava.spring.modelo.Venta;
 
-@Controller
+
 public class VentasController {
 	private Venta venta;
 	private List<Producto> productos;
