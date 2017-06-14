@@ -9,9 +9,15 @@ public class Producto {
 	private int precio;
 	private boolean estado;
 	private int cantidad;
+	private int idCategoria;
 	
+	public Producto()
+	{
+		
+	}	
+
 	public Producto(int id, int fechaIngreso, String descripcion, int precio, boolean estado, int cantidad,
-			String nombre) {
+			String nombre, int idCategoria) {
 		
 		this.id = id;
 		this.fechaIngreso = fechaIngreso;
@@ -20,6 +26,7 @@ public class Producto {
 		this.estado = estado;
 		this.cantidad = cantidad;
 		this.nombre = nombre;
+		this.idCategoria= idCategoria;
 	}
 
 	public int getId() {
@@ -76,6 +83,14 @@ public class Producto {
 
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
+	}
+
+	public int getIdCategoria() {
+		return idCategoria;
+	}
+
+	public void setIdCategoria(int idCategoria) {
+		this.idCategoria = idCategoria;
 	}
 	
 
