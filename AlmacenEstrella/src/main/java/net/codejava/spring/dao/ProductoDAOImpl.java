@@ -27,7 +27,7 @@ public class ProductoDAOImpl implements ProductoDAO {
 	public void guardarOActualizar(Producto producto) {
 		if(producto.getId() > 0){
 			
-			String sql = "UPDATE productos SET Nombre=?, Descripcion=?, Precio=?, Cantidad=? IdCategoria=?, WHERE Id=?";
+			String sql = "UPDATE productos SET Nombre=?, Descripcion=?, Precio=?, Cantidad=?, IdCategoria=? WHERE Id=?";
 			jdbcTemplate.update(sql, producto.getNombre(), producto.getDescripcion(), producto.getPrecio(), producto.getCantidad(), producto.getCategoria().getId(),producto.getId());
 		}
 		else{
