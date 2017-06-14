@@ -14,14 +14,14 @@ import org.springframework.web.servlet.ModelAndView;
 import net.codejava.spring.modelo.Producto;
 import net.codejava.spring.modelo.Venta;
 
-
-public class VentasController {
+@Controller
+public class VentasControlador {
 	private Venta venta;
 	private List<Producto> productos;
 	private boolean error = false;
 	private String mensaje="";
 	
-	public VentasController(){
+	public VentasControlador(){
 		venta = new Venta();
 		productos = new ArrayList<Producto>();
 	}
@@ -52,7 +52,7 @@ public class VentasController {
 		
 	}
 	
-	@RequestMapping(value="/eliminarProducto",method = RequestMethod.GET)
+	@RequestMapping(value="/eliminarProducto",method = RequestMethod.POST)
 	public ModelAndView eliminarProducto(String index){
 		Producto producto = productos.remove(Integer.parseInt(index));
 		venta.setTotal(venta.getTotal()-(producto.getPrecio()*producto.getCantidad()));
