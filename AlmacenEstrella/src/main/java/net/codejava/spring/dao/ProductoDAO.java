@@ -12,7 +12,9 @@ public interface ProductoDAO {
 	
 	public Producto obtener(int producto);
 	
-	public boolean validar(int id);
+	public boolean validarPorId(int id);
+	
+	public boolean validarPorNombre(String nombre);
 	
 	public List<Producto> lista();
 

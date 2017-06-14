@@ -29,7 +29,18 @@ public class ProductoNegocio {
 			productoDAO.guardarOActualizar(producto);
 		}
 		else{
-			productoDAO.guardarOActualizar(producto);
+			if(!productoDAO.validarPorId(producto.getId())){
+				
+				mensaje = "Ya existe el id"; 
+				productoDAO.guardarOActualizar(producto);
+			}
+			else if(!productoDAO.validarPorNombre(producto.getNombre())){
+				mensaje = "El nombre ya existe"; 
+			}
+			else{
+				productoDAO.guardarOActualizar(producto);
+			}
+			
 		}
 		return mensaje;
 	}
