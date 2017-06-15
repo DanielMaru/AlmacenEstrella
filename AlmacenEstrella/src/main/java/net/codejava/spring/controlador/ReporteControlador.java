@@ -23,7 +23,7 @@ public class ReporteControlador {
 	@Autowired
 	private ReporteNegocio reporteNegocio;
 	
-	@RequestMapping(value="/")
+	@RequestMapping(value="/index")
 	public ModelAndView listContact(ModelAndView model) throws IOException{
 		
 		model.setViewName("Index");

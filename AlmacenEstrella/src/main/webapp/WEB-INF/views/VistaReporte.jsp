@@ -7,10 +7,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Home</title>
-        <link rel="stylesheet" href="style.css">
+                
+        
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
     </head>
     <body >
       
@@ -74,19 +76,19 @@
 		
 	</script>
       
-      <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Almacenes Estrella     <span class="glyphicon glyphicon-star-empty"></span></a>  
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Productos</a></li>
-      <li><a href="#">Ventas</a></li>
-      <li><a href="#">Reportes</a></li>
-    </ul>
-  </div>
-</nav>
+    <nav class="navbar navbar-inverse">
+			  <div class="container-fluid">
+			    <div class="navbar-header">
+			      <a class="navbar-brand" href="index"><img alt="logo" src="<c:url value="/resources/imagenes/fondo.png" />"></a>
+			    </div>
+			    <ul class="nav navbar-nav">
+			      <li ><a href="index">Inicio</a></li>
+			      <li><a href="productos">Productos</a></li>
+			      <li><a href="ventas">Ventas</a></li>
+			      <li class="active"><a href="reporte">Reportes</a></li>
+			    </ul>
+			  </div>
+			</nav>
 
 
  
