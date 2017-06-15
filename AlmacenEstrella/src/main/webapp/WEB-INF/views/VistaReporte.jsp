@@ -54,10 +54,22 @@
    				} 
   			}
   			
+  			var tabla = document.getElementById("tablaReporte");
+  			var total = 0;
   			
-  		
+  			for(var i = 1; tabla.rows[i]; i++){
+  				if(tabla.rows[i].style.display == ""){
+  			total += Number(tabla.rows[i].cells[3].innerHTML);
+  			
+  			}
+  			}
+  			document.getElementById("suma").innerHTML = total;
+
+
 		}
 		
+		
+	
 	    
 		
 	</script>
@@ -131,7 +143,7 @@
 			</table>
 	   </div>
 	        
-	     <h3>TOTAL: <span class="label label-default">${sumaTotal}</span></h3>
+	     <h3>TOTAL: <span class="label label-default" id="suma">${sumaTotal}</span></h3>
 	      
 	        
       
