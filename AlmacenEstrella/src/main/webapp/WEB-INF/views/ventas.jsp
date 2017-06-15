@@ -27,22 +27,26 @@
 			    </ul>
 			  </div>
 			</nav>
+			
+			<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#realizarVenta">Realizar Venta</a></li>
+    <li><a data-toggle="tab" href="#eliminarVenta">Eliminar Venta</a></li>
+  </ul>
 	<c:if test="${error=='true'}"><script>$(function() {  $("#myModal").modal();  });</script></c:if>
-	<div class="row">
-	<div class="ventas">
-	
-	
+
+	<div class="tab-content">
+	<div id="realizarVenta" class="tab-pane fade in active" style="padding:0% 10% 10% 10%">
 		<center><h1 class="title">Realizar Venta</h1></center><br><br>
-	<div >
+	
 	<form action="agregarProducto" method="post">
-	  	<div class="ventasProductos">
+	  	
 		<!-- <label>Ingrese codigo del producto</label>-->
 		<input type="text"   id="codigo"  name="codigo" placeholder="Ingrese el id del producto" style="width: 40%" required >
 		<!-- <label>Ingrese cantidad</label>-->
 		<input type="text"  id="cantidad"  name="cantidad" placeholder="Ingrese la cantidad" style="width: 40%" required >
 		
 		<input class="btn btn-success" type="submit" value="Agregar Producto"/>
-		</div>
+		
 	</form>
 	
 		<div class="table-responsive" style="padding-top: 3%" >
@@ -73,13 +77,15 @@
 	</form>
 	</div>
 	
-	<div class="divEliinarVenta">
+	<div class="tab-pane fade" id="eliminarVenta">
+	<div style="padding: 0% 10% 10% 10%">
 	<h1>Eliminar Venta</h1>
 	<form action="eliminarVenta" method="post">
 		<label>Id de la venta</label>
 		<input type="text" name="id" id="id"/>
 		<input class="btn btn-danger" type="submit" value="Eliminar Venta"/>
 	</form>
+	</div>
 	</div>
 	<!-- Modal -->
 			<div id="myModal" class="modal fade" role="dialog">
@@ -101,9 +107,7 @@
 			
 			  </div>
 			  </div>
-  </div>
-  </div>
   
-	
+	</div>
 </body>
 </html>
