@@ -35,6 +35,7 @@ public class ReporteControlador {
 	public ModelAndView listarVentas(ModelAndView model) throws IOException{
 		Calendar fecha = new GregorianCalendar();
 		int mes = fecha.get(Calendar.MONTH) + 1;
+		System.out.println(mes);
 		List<Venta> listaVentas = reporteNegocio.listarVentas(mes);
 		int sumaTotal = reporteNegocio.calcularTotal(listaVentas);
 		

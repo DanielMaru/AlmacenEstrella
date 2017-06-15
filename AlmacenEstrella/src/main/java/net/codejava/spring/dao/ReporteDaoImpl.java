@@ -22,7 +22,7 @@ public class ReporteDaoImpl implements ReporteDao{
 
 	@Override
 	public List<Venta> listarVentas(int mes) {
-		String sql = "SELECT * FROM ventas WHERE month(FechaVenta) = "+mes;
+		String sql = "SELECT * FROM ventas ";
 		List<Venta> listaVentas = jdbcTemplate.query(sql, new RowMapper<Venta>() {
 
 			@Override
