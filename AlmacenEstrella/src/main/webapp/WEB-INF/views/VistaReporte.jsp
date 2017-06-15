@@ -24,9 +24,21 @@
   		    
   		    
   			input = document.getElementById("id");
-  			var numeroMes = y[x].index + 1;
-  			filter = "-"+ numeroMes +"-";
-  			alert(filter);
+  			var numeroMes = y[x].index ;
+  			
+  			if(numeroMes==0){
+  				filter="";
+  			}
+  			else{
+  		        if(numeroMes < 10){
+  	  			filter = "-0"+ numeroMes +"-";
+
+  		        }
+  			   else{
+  	  			filter = "-"+ numeroMes +"-";
+  			   }
+		}	
+  			//alert(filter);
   			table = document.getElementById("tablaReporte");
   			tr = table.getElementsByTagName("tr");
 
@@ -41,7 +53,13 @@
       				}
    				} 
   			}
+  			
+  			
+  		
 		}
+		
+	    
+		
 	</script>
       
       <nav class="navbar navbar-inverse">
@@ -75,7 +93,8 @@
        <form align="center" class="form-inline">
 		  <div class="form-group">
 		    <label >Seleccione el mes:</label>
-		    <select class="form-control" id="sel1" onchange="myFunction()">
+		    <select class="form-control" id="sel1"  onchange="myFunction()">
+		    <option> Ver Todos</option>
 	        <option>Enero</option>
 	        <option>Febrero</option>
 	        <option>Marzo</option>
@@ -91,9 +110,9 @@
 	        </select>
 		  </div>
 		</form>
-      
+      <br><br>
       <div  class="col-md-6 col-md-offset-3" border="3">
-	           <table class="table table-bordered table-striped " id="tableDepart">
+	           <table class="table table-bordered table-striped " id="tablaReporte">
 	        	<th>ID</th>
 	        	<th>Cajero</th>
 	        	<th>Fecha</th>
@@ -104,7 +123,7 @@
 	        		<td>${venta.id}</td>
 					<td>${venta.cajero}</td>
 					<td>${venta.fechasVenta}</td>
-		            <td>${venta.total}</td>
+		            <td id="total">${venta.total}</td>
 										
 							
 	        	</tr>
@@ -126,20 +145,40 @@
     
       
       <div  class="col-md-6 col-md-offset-3" border="3">
-	           <table class="table table-bordered table-striped " id="tablaReporte">
+	           <table class="table table-bordered  " >
 	        	<th>ID</th>
 	        	<th>Nombre</th>
 	        	<th>Cantidad</th>
 	        	
+				
 				<c:forEach var="producto" items="${listaProducto}" varStatus="status">
+				<c:choose>
+				
+				 <c:when test="${producto.cantidad=='0'}"> 
+				 
+				 
+	        	<tr  class="danger">
+	        		<td>${producto.id}</td>
+					<td>${producto.nombre}</td>
+					<td>${producto.cantidad}</td>
+		          									
+	        	</tr>
+	        	</c:when>
+	        	
+	        	 <c:otherwise > 
+				 
+				 
 	        	<tr>
 	        		<td>${producto.id}</td>
 					<td>${producto.nombre}</td>
 					<td>${producto.cantidad}</td>
-		          							
-							
+		          									
 	        	</tr>
-				</c:forEach>	        	
+	        	</c:otherwise>
+	        	
+	        	</c:choose>
+	        	
+				</c:forEach>	        	    	
 			</table>
 	   </div>
 	        
