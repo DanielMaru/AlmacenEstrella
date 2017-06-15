@@ -43,9 +43,9 @@
 	<form action="agregarProducto" method="post" class="form-inline">
 	  	
 		<!-- <label>Ingrese codigo del producto</label>-->
-		<input type="text"   id="codigo"  name="codigo" placeholder="Ingrese el id del producto"   class="form-control" required >
+		<input type="text"   id="codigo"  name="codigo" placeholder="Id del producto"   class="form-control" required >
 		<!-- <label>Ingrese cantidad</label>-->
-		<input type="text"  id="cantidad"  name="cantidad" placeholder="Ingrese la cantidad"  class="form-control"  required >
+		<input type="text"  id="cantidad"  name="cantidad" placeholder="Ingrese cantidad"  class="form-control"  required >
 		
 		<input class="btn" type="submit" value="Agregar Producto" />
 		
@@ -86,7 +86,7 @@
 	
 	<form action="realizarVenta" method="post" class="form-inline" style="padding-top: 5%">
 		<div class="form-group">
-		 <input type="text" name="cajero" id="cajero" class="form-control"  placeholder="Ingrese el nombre del cajero"required/>
+		 <input type="text" name="cajero" id="cajero" class="form-control"  placeholder="Nombre del cajero"required/>
 		 </div>
 		 <div class="form-group">
 		<input class="btn" type="submit" value="Registrar Venta" form-control/>
