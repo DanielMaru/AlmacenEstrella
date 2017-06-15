@@ -1,4 +1,4 @@
-package net.codejava.spring.dao;
+	package net.codejava.spring.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -62,7 +62,7 @@ public class ProductoDAOImpl implements ProductoDAO {
 					Categoria categoria = new Categoria();
 					producto.setId(rs.getInt("Id"));
 					producto.setNombre(rs.getString("Nombre"));
-					producto.setFechaIngreso(rs.getInt("FechaIngreso"));
+					producto.setFechaIngreso(rs.getString("FechaIngreso"));
 					producto.setDescripcion(rs.getString("Descripcion"));
 					producto.setPrecio(rs.getInt("Precio"));
 					producto.setEstado(rs.getInt("Estado"));
@@ -128,7 +128,7 @@ public class ProductoDAOImpl implements ProductoDAO {
 				
 				aProducto.setId(rs.getInt("Id"));
 				aProducto.setNombre(rs.getString("Nombre"));
-				aProducto.setFechaIngreso(rs.getInt("FechaIngreso"));
+				aProducto.setFechaIngreso(rs.getString("FechaIngreso"));
 				aProducto.setDescripcion(rs.getString("Descripcion"));
 				aProducto.setPrecio(rs.getInt("Precio"));
 				aProducto.setEstado(rs.getInt("Estado"));

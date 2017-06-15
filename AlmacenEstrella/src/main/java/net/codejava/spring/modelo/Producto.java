@@ -4,7 +4,7 @@ public class Producto {
 
 	private int id;
 	private String nombre;
-	private int fechaIngreso;
+	private String fechaIngreso;
 	private String descripcion;
 	private int precio;
 	private int estado;
@@ -16,7 +16,7 @@ public class Producto {
 		
 	}	
 
-	public Producto(int id, int fechaIngreso, String descripcion, int precio, int estado, int cantidad,
+	public Producto(int id, String fechaIngreso, String descripcion, int precio, int estado, int cantidad,
 			String nombre, Categoria categoria) {
 		
 		this.id = id;
@@ -45,11 +45,11 @@ public class Producto {
 		this.nombre = nombre;
 	}
 
-	public int getFechaIngreso() {
+	public String getFechaIngreso() {
 		return fechaIngreso;
 	}
 
-	public void setFechaIngreso(int fechaIngreso) {
+	public void setFechaIngreso(String fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 	}
 

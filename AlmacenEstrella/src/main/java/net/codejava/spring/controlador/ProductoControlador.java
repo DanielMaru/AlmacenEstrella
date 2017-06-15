@@ -10,7 +10,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
 import net.codejava.spring.dao.ProductoDAO;
 import net.codejava.spring.modelo.Producto;
@@ -75,7 +80,7 @@ public class ProductoControlador {
 		}
 	}
 	@RequestMapping(value = "/eliminarProducto", method = RequestMethod.GET)
-	public ModelAndView eliminarProducto(HttpServletRequest request) {
+	public  ModelAndView eliminarProducto(HttpServletRequest request) {
 		int idProducto = Integer.parseInt(request.getParameter("id"));
 		productoDAO.eliminar(idProducto);
 		return new ModelAndView("redirect:/productos");
@@ -90,4 +95,14 @@ public class ProductoControlador {
 		
 		return model;
 	}
+	
+	@RequestMapping(value = "/obtener", method = RequestMethod.GET, produces = "application/json")
+	public  @ResponseBody String obtener(HttpServletRequest request) throws JsonProcessingException {
+		int idProducto = Integer.parseInt(request.getParameter("id"));
+		Producto producto = productoDAO.obtener(idProducto);
+		ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+		String json = ow.writeValueAsString(producto);		
+		return json;
+	}
+	
 }
