@@ -14,7 +14,35 @@
     </head>
     <body >
       
+	<script>
+		function myFunction() {
+  		// Declare variables 
+  			var input, filter, table, tr, td, i;
+  		
+  			var x = document.getElementById("sel1").selectedIndex;
+  		    var y = document.getElementById("sel1").options;
+  		    
+  		    
+  			input = document.getElementById("id");
+  			var numeroMes = y[x].index + 1;
+  			filter = "-"+ numeroMes +"-";
+  			alert(filter);
+  			table = document.getElementById("tablaReporte");
+  			tr = table.getElementsByTagName("tr");
 
+  			// Loop through all table rows, and hide those who don't match the search query
+  			for (i = 0; i < tr.length; i++) {
+    			td = tr[i].getElementsByTagName("td")[2];
+    			if (td) {
+    	  			if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        				tr[i].style.display = "";
+      				} else {
+        				tr[i].style.display = "none";
+      				}
+   				} 
+  			}
+		}
+	</script>
       
       <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -47,7 +75,7 @@
        <form align="center" class="form-inline">
 		  <div class="form-group">
 		    <label >Seleccione el mes:</label>
-		    <select class="form-control" id="sel1">
+		    <select class="form-control" id="sel1" onchange="myFunction()">
 	        <option>Enero</option>
 	        <option>Febrero</option>
 	        <option>Marzo</option>
@@ -98,7 +126,7 @@
     
       
       <div  class="col-md-6 col-md-offset-3" border="3">
-	           <table class="table table-bordered table-striped " id="tableDepart">
+	           <table class="table table-bordered table-striped " id="tablaReporte">
 	        	<th>ID</th>
 	        	<th>Nombre</th>
 	        	<th>Cantidad</th>
