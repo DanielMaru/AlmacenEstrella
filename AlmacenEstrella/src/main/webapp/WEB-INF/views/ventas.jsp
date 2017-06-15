@@ -1,3 +1,5 @@
+<%@page import="net.codejava.spring.modelo.Producto"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -38,19 +40,23 @@
 	<div id="realizarVenta" class="tab-pane fade in active" style="padding:0% 10% 10% 10%">
 		<center><h1 class="title">Realizar Venta</h1></center><br><br>
 	
-	<form action="agregarProducto" method="post">
+	<form action="agregarProducto" method="post" class="form-inline">
 	  	
 		<!-- <label>Ingrese codigo del producto</label>-->
-		<input type="text"   id="codigo"  name="codigo" placeholder="Ingrese el id del producto" style="width: 40%" required >
+		<input type="text"   id="codigo"  name="codigo" placeholder="Ingrese el id del producto"   class="form-control" required >
 		<!-- <label>Ingrese cantidad</label>-->
-		<input type="text"  id="cantidad"  name="cantidad" placeholder="Ingrese la cantidad" style="width: 40%" required >
+		<input type="text"  id="cantidad"  name="cantidad" placeholder="Ingrese la cantidad"  class="form-control"  required >
 		
-		<input class="btn btn-success" type="submit" value="Agregar Producto"/>
+		<input class="btn" type="submit" value="Agregar Producto" />
 		
 	</form>
-	
+		 
+		<div>
+		<c:if test="${cantidad>0 }">
 		<div class="table-responsive" style="padding-top: 3%" >
- 		 <table class="table">
+		
+ 		 <table class="table table-striped">
+ 		
 		<th>id</th>
 		<th>Nombre</th>
 		<th>Cantidad</th>
@@ -65,25 +71,39 @@
 		<td>${producto.precio }</td>
 		<td><a href="eliminar?index=${status.index}">x</a></td>
 		</tr>
+		<tr>
+		</tr>
 		</c:forEach>
+		
+		
 	</table>
+	
 	</div>
+	
 	<label>Total: ${total }</label>
+	</c:if>
+	</div>
 	
-	
-	<form action="realizarVenta" method="post">
-		<label>Cajero:</label> <input type="text" name="cajero" id="cajero" required/>
-		<input class="btn btn-success" type="submit" value="Registrar Venta"/>
+	<form action="realizarVenta" method="post" class="form-inline" style="padding-top: 5%">
+		<div class="form-group">
+		 <input type="text" name="cajero" id="cajero" class="form-control"  placeholder="Ingrese el nombre del cajero"required/>
+		 </div>
+		 <div class="form-group">
+		<input class="btn" type="submit" value="Registrar Venta" form-control/>
+		</div>
 	</form>
 	</div>
 	
 	<div class="tab-pane fade" id="eliminarVenta">
 	<div style="padding: 0% 10% 10% 10%">
-	<h1>Eliminar Venta</h1>
-	<form action="eliminarVenta" method="post">
-		<label>Id de la venta</label>
-		<input type="text" name="id" id="id"/>
-		<input class="btn btn-danger" type="submit" value="Eliminar Venta"/>
+	<center><h1 class="title">Eliminar Venta</h1></center>
+	<form action="eliminarVenta" method="post" class="form-inline">
+		<div class="form-group">
+		<input type="text" name="id" id="id" placeholder="Ingrese el id de la venta" class="form-control"  required/>
+		</div>
+		<div class="form-group">
+		<input class="btn" type="submit" value="Eliminar Venta"/>
+		</div>
 	</form>
 	</div>
 	</div>
