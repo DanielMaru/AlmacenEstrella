@@ -135,6 +135,7 @@ public class VentasDAOImpl implements VentasDAO{
 				retorno=true;
 			}catch(Exception e){
 				retorno=false;
+				e.printStackTrace();
 			}
 			
 		}
