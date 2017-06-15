@@ -5,7 +5,7 @@ $( document ).ready(function() {
 	    	   	
 	    	var Producto = result;
 	    	$("#nombre").val(Producto.nombre);
-	    	//$("#sel1").val(Producto.sel1);
+	    	$("#categoria").val(Producto.id);
 	    	$("#descripcion").val(Producto.descripcion);
 	    	$("#precio").val(Producto.precio);
 	    	$("#cantidad").val(Producto.cantidad);

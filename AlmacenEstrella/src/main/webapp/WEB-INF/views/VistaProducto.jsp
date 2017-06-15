@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+ <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -42,21 +43,20 @@
 				</div>
 				<div class="margenRow row">
 						<div class="col-md-8 col-md-offset-2">
-						<form class="form-horizontal">
+						<form:form action="guardarProducto" method="post" modelAttribute="producto" class="form-horizontal">
 						  <div class="form-group">
 						    <label class="control-label col-sm-2" for="nombre">Nombre:</label>
 						    <div class="col-sm-6">
-						      <input type="nombre" class="form-control" id="nombre" placeholder="Ingrese el nombre">
+						      <Form:input path="nombre" type="nombre" class="form-control" id="nombre" placeholder="Ingrese el nombre">
 						    </div>
 						  </div>
 						  <div class="form-group">
 						    <label class="control-label col-sm-2" for="categoria">Categoria</label>
 						    <div class="col-sm-6"> 
-						      <select class="form-control" id="sel1">
-						        <option>1</option>
-						        <option>2</option>
-						        <option>3</option>
-						        <option>4</option>
+						      <select class="form-control" id="categoria" name="categoria">
+						        <option value="1">Hogar</option>
+						        <option value="2">Tecnologia</option>
+						        <option value="3">Moda</option>						        
 						      </select>
 						    </div>
 						  </div>
@@ -86,13 +86,11 @@
 						      <button type="submit" class="btn btn-default">Eliminar</button>
 						    </div>
 						  </div>
-						</form>
+						</form:form>
 						</div>
 					</div>		
-		</div>
+				</div>
 			</div>
 		</div>
-		
-	
 	</body>
 </html>
