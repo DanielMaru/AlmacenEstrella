@@ -77,6 +77,7 @@
 		
 		
 	</table>
+	
 	</div>
 	
 	<label>Total: ${total }</label>
