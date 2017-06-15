@@ -24,3 +24,24 @@ body {
 .navbar-brand{
 	padding: 0px 15px;
 }
+
+.title{
+	color: #b9121b;
+}
+
+.ventas{
+	padding-right: 10%;
+    padding-bottom: 10%;
+    padding-left: 10%;
+	
+}
+
+.ventasProductos{
+
+    
+
+}
+
+.divEliinarVenta{
+	padding-top: 10%;
+}
