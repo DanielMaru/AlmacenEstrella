@@ -7,23 +7,24 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Home</title>
-        
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
     </head>
     <body>
-      <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
-    </ul>
-  </div>
-</nav>
+	      <nav class="navbar navbar-inverse">
+			  <div class="container-fluid">
+			    <div class="navbar-header">
+			      <a class="navbar-brand" href="#"><img alt="logo" src="<c:url value="/resources/imagenes/fondo.png" />"></a>
+			    </div>
+			    <ul class="nav navbar-nav">
+			      <li class="active"><a href="#">Inicio</a></li>
+			      <li><a href="#">Productos</a></li>
+			      <li><a href="#">Ventas</a></li>
+			      <li><a href="#">Reportes</a></li>
+			    </ul>
+			  </div>
+			</nav>
 
     </body>
 </html>
