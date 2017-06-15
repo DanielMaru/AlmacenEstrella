@@ -45,20 +45,25 @@ public class VentasControlador {
 		boolean insertar=true;
 		
 		try{
-			Producto producto = ventasNegocio.validar(Integer.parseInt(codigo), Integer.parseInt(cantidad));
-			producto.setCantidad(Integer.parseInt(cantidad));
-			for (Producto productoTemp : productos) {
-				if(productoTemp.getId()==producto.getId()){
-					insertar=false;
-					error=true;
-					mensaje="El producto ya esta insertado";
-					break;
+			if(Integer.parseInt(cantidad)>0){
+				Producto producto = ventasNegocio.validar(Integer.parseInt(codigo), Integer.parseInt(cantidad));
+				producto.setCantidad(Integer.parseInt(cantidad));
+				for (Producto productoTemp : productos) {
+					if(productoTemp.getId()==producto.getId()){
+						insertar=false;
+						error=true;
+						mensaje="El producto ya esta insertado";
+						break;
+					}
 				}
-			}
-			
-			if(insertar){
-				productos.add(producto);
-				venta.setTotal(venta.getTotal()+(producto.getPrecio()*producto.getCantidad()));
+				
+				if(insertar){
+					productos.add(producto);
+					venta.setTotal(venta.getTotal()+(producto.getPrecio()*producto.getCantidad()));
+				}
+			}else{
+				error=true;
+				mensaje="La cantidad no puede ser cero";
 			}
 			
 		}catch(Exception e){
@@ -80,6 +85,7 @@ public class VentasControlador {
 		return getVista();
 		
 	}
+	
 	
 	@RequestMapping(value="realizarVenta",method = RequestMethod.POST)
 	public ModelAndView realizarVenta(String cajero){
