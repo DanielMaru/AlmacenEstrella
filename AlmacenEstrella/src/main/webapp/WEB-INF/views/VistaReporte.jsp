@@ -156,15 +156,17 @@
     
     <h3>Reporte Productos</h3>
       
-    
-      
+          
       <div  class="col-md-6 col-md-offset-3" border="3">
+       <dt>Aqui podras ver los productos que estan escasos.</dt>
+       <dd>En rojo los productos agotados.</dd> <br>
 	           <table class="table table-bordered  " >
+	           <tr class="active">
 	        	<th>ID</th>
 	        	<th>Nombre</th>
 	        	<th>Cantidad</th>
 	        	
-				
+				<tr>
 				<c:forEach var="producto" items="${listaProducto}" varStatus="status">
 				<c:choose>
 				
