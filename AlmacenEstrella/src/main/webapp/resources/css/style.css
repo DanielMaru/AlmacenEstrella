@@ -24,6 +24,20 @@ body {
 .navbar-brand{
 	padding: 0px 15px;
 }
+
 .margenRow{
 	margin-top: 45px;
 }
+
+.title{
+	color: #b9121b;
+}
+
+.ventas{
+	padding-right: 10%;
+    padding-bottom: 10%;
+    padding-left: 10%;
+	
+}
+
+
