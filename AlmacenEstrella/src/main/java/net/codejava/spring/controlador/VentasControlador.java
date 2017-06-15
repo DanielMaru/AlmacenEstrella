@@ -136,6 +136,7 @@ public class VentasControlador {
 		modelo.addObject("total",venta.getTotal());
 		modelo.addObject("error",error);
 		modelo.addObject("mensaje",mensaje);
+		modelo.addObject("cantidad",productos.size());
 		error = false;
 		return modelo;
 	}
