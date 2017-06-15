@@ -23,13 +23,18 @@ public class ReporteControlador {
 	@Autowired
 	private ReporteNegocio reporteNegocio;
 	
-	@RequestMapping(value="/")
-	public ModelAndView listContact(ModelAndView model) throws IOException{
+	
+	
+	@RequestMapping(value="/index")
+	public ModelAndView home(ModelAndView model) throws IOException{
 		
 		model.setViewName("Index");
 		
 		return model;
 	}
+	
+	
+	
 	
 	@RequestMapping(value="/reporte")
 	public ModelAndView listarVentas(ModelAndView model) throws IOException{

@@ -22,7 +22,7 @@ public class ReporteDaoImpl implements ReporteDao{
 
 	@Override
 	public List<Venta> listarVentas(int mes) {
-		String sql = "SELECT * FROM ventas ";
+		String sql = "SELECT * FROM ventas where Estado=0 ";
 		List<Venta> listaVentas = jdbcTemplate.query(sql, new RowMapper<Venta>() {
 
 			@Override
@@ -44,7 +44,7 @@ public class ReporteDaoImpl implements ReporteDao{
 
 	@Override
 	public List<Producto> listarProductos() {
-		String sql = "SELECT * FROM productos WHERE cantidad < 100";
+		String sql = "SELECT * FROM productos WHERE cantidad < 100 AND Estado=0";
 		List<Producto> listaProductos = jdbcTemplate.query(sql, new RowMapper<Producto>() {
 
 			@Override

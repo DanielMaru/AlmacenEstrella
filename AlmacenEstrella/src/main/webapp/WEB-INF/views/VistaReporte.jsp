@@ -7,14 +7,28 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Home</title>
-        <link rel="stylesheet" href="style.css">
+                
+        
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
     </head>
-    <body >
+    <body  onload="myFunction1()">
       
 	<script>
+	
+	function myFunction1() {
+		var total= document.getElementById("suma").innerHTML;
+		document.getElementById("suma").innerHTML = formatter.format(total);
+	}
+	
+	var formatter = new Intl.NumberFormat('en-US', {
+		  style: 'currency',
+		  currency: 'USD',
+		  minimumFractionDigits: 0,
+		});
+	
 		function myFunction() {
   		// Declare variables 
   			var input, filter, table, tr, td, i;
@@ -54,27 +68,42 @@
    				} 
   			}
   			
+  			var tabla = document.getElementById("tablaReporte");
+  			var total = 0;
   			
-  		
+  			for(var i = 1; tabla.rows[i]; i++){
+  				if(tabla.rows[i].style.display == ""){
+  			total += Number(tabla.rows[i].cells[3].innerHTML);
+  			
+  			}
+  			}
+  			
+  			document.getElementById("suma").innerHTML = formatter.format(total);
+           
+  			
+
 		}
 		
+		
+		
+	
 	    
 		
 	</script>
       
-      <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Almacenes Estrella     <span class="glyphicon glyphicon-star-empty"></span></a>  
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Productos</a></li>
-      <li><a href="#">Ventas</a></li>
-      <li><a href="#">Reportes</a></li>
-    </ul>
-  </div>
-</nav>
+    <nav class="navbar navbar-inverse">
+			  <div class="container-fluid">
+			    <div class="navbar-header">
+			      <a class="navbar-brand" href="index"><img alt="logo" src="<c:url value="/resources/imagenes/fondo.png" />"></a>
+			    </div>
+			    <ul class="nav navbar-nav">
+			      <li ><a href="index">Inicio</a></li>
+			      <li><a href="productos">Productos</a></li>
+			      <li><a href="ventas">Ventas</a></li>
+			      <li class="active"><a href="reporte">Reportes</a></li>
+			    </ul>
+			  </div>
+			</nav>
 
 
  
@@ -131,7 +160,7 @@
 			</table>
 	   </div>
 	        
-	     <h3>TOTAL: <span class="label label-default">${sumaTotal}</span></h3>
+	     <h3>TOTAL: <span class="label label-default" id="suma">${sumaTotal}</span></h3>
 	      
 	        
       
@@ -142,15 +171,17 @@
     
     <h3>Reporte Productos</h3>
       
-    
-      
+          
       <div  class="col-md-6 col-md-offset-3" border="3">
+       <dt>Aqui podras ver los productos que estan escasos.</dt>
+       <dd>En rojo los productos agotados.</dd> <br>
 	           <table class="table table-bordered  " >
+	           <tr class="active">
 	        	<th>ID</th>
 	        	<th>Nombre</th>
 	        	<th>Cantidad</th>
 	        	
-				
+				<tr>
 				<c:forEach var="producto" items="${listaProducto}" varStatus="status">
 				<c:choose>
 				
