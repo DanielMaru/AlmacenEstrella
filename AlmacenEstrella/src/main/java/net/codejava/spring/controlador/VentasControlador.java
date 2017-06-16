@@ -6,11 +6,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
 
 import net.codejava.spring.modelo.Producto;
 import net.codejava.spring.modelo.Venta;
@@ -95,7 +97,7 @@ public class VentasControlador {
 			if(!venta.getListaProductos().isEmpty()){
 				if(ventasNegocio.guardar(venta)){
 					error=true;
-					mensaje="Venta insertada con �xito";
+					mensaje="Venta insertada con éxito";
 				}else{
 					error=true;
 					mensaje="La venta no ha sido registrada";
@@ -122,7 +124,7 @@ public class VentasControlador {
 		try{
 			if(ventasNegocio.eliminadoLogico(Integer.parseInt(id))){
 				error=true;
-				mensaje="Venta eliminada con �xito";
+				mensaje="Venta eliminada con éxito";
 			}else{
 				error=true;
 				mensaje= "La venta no pudo ser eliminada";
@@ -147,6 +149,6 @@ public class VentasControlador {
 		return modelo;
 	}
 	
-	
+
 
 }
