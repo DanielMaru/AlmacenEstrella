@@ -23,7 +23,7 @@
 			      <li><a href="index">Inicio</a></li>
 			      <li class="active"><a href="productos">Productos</a></li>
 			      <li><a href="ventas">Ventas</a></li>
-			      <li><a href="reportes">Reportes</a></li>
+			      <li><a href="reporte">Reportes</a></li>
 			    </ul>
 			  </div>
 		</nav>
