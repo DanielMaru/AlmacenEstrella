@@ -78,7 +78,7 @@ CREATE TABLE `productosventas` (
 CREATE TABLE `ventas` (
   `Id` int(11) NOT NULL,
   `Cajero` varchar(100) NOT NULL,
-  `FechaVenta` datetime NOT NULL,
+  `FechaVenta` datetime NOT NULL  DEFAULT CURRENT_TIMESTAMP,
   `Total` int(11) NOT NULL,
   `Estado` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
