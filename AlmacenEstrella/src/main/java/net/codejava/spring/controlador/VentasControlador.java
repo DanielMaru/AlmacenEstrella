@@ -110,6 +110,7 @@ public class VentasControlador {
 		}catch(Exception e){
 			error=true;
 			mensaje="Ha ocurrido un error, por favor intenta de nuevo";
+			e.printStackTrace();
 		}
 		productos.clear();
 		venta.setCajero("");
