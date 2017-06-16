@@ -17,13 +17,13 @@
 		<nav class="navbar navbar-inverse">
 			  <div class="container-fluid">
 			    <div class="navbar-header">
-			      <a class="navbar-brand" href=""><img alt="logo" src="<c:url value="/resources/imagenes/fondo.png" />"></a>
+			      <a class="navbar-brand" href="index"><img alt="logo" src="<c:url value="/resources/imagenes/fondo.png" />"></a>
 			    </div>
 			    <ul class="nav navbar-nav">
-			      <li class="active"><a href="#">Inicio</a></li>
-			      <li><a href="#">Productos</a></li>
-			      <li><a href="#">Ventas</a></li>
-			      <li><a href="#">Reportes</a></li>
+			      <li><a href="index">Inicio</a></li>
+			      <li class="active"><a href="productos">Productos</a></li>
+			      <li><a href="ventas">Ventas</a></li>
+			      <li><a href="reportes">Reportes</a></li>
 			    </ul>
 			  </div>
 		</nav>
