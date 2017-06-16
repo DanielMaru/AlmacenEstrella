@@ -34,7 +34,7 @@
 					<div class="col-md-6 col-md-offset-3">
 						<form class="form-inline">
 						  <div class="form-group">
-						    <label for="id">Buscar:</label>
+						    <label for="id">Buscar por ID:</label>
 						    <input type="number" class="form-control" id="idProducto">
 						  </div>
 						  <button type="button" class="btn btn-default" id="btnBuscar">Buscar</button>
@@ -43,17 +43,24 @@
 				</div>
 				<div class="margenRow row">
 						<div class="col-md-8 col-md-offset-2">
-							<form  class="form-horizontal">
+							<form:form  action="guardarProducto" method="post" modelAttribute="producto" class="form-horizontal">
+							
+							<div class="form-group">
+							    <label class="control-label col-sm-2" for="nombre">Id:</label>
+							    <div class="col-sm-6">
+							      <form:input path="id" type="number" class="form-control" id="id" placeholder="Ingrese el Id"/>
+							    </div>
+							  </div>
 							  <div class="form-group">
 							    <label class="control-label col-sm-2" for="nombre">Nombre:</label>
 							    <div class="col-sm-6">
-							      <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre"/>
+							      <form:input path="nombre" type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre"/>
 							    </div>
 							  </div>
 							  <div class="form-group">
 							    <label class="control-label col-sm-2" for="categoria">Categoria</label>
 							    <div class="col-sm-6"> 
-							      <select class="form-control" id="categoria" >
+							      <select class="form-control" name="idCategoria" id="idCategoria" path="idCategoria" >
 							        <option value="1" label="Hogar"/>
 							        <option value="2" label="Tecnologia"/>
 							        <option value="3" label="Moda"/>					        
@@ -63,30 +70,30 @@
 							  <div class="form-group">
 							    <label class="control-label col-sm-2" for="descripcion">Descripcion:</label>
 							    <div class="col-sm-6"> 
-							      <input type="text" class="form-control" id="descripcion" placeholder="Ingrese la descripcion"/>
+							      <form:input path="descripcion" type="text" class="form-control" id="descripcion" placeholder="Ingrese la descripcion"/>
 							    </div>
 							  </div>
 							  <div class="form-group">
 							    <label class="control-label col-sm-2" for="precio">Precio:</label>
 							    <div class="col-sm-6"> 
-							      <input type="number" class="form-control" id="precio" placeholder="Ingrese el precio"/>
+							      <form:input path="precio" type="number" class="form-control" id="precio" placeholder="Ingrese el precio"/>
 							    </div>
 							  </div>
 							  <div class="form-group">
 							    <label class="control-label col-sm-2" for="cantidad">Cantidad:</label>
 							    <div class="col-sm-6"> 
-							      <input type="number" class="form-control" id="cantidad" placeholder="Ingrese la cantidad"/>
+							      <form:input path="cantidad" type="number" class="form-control" id="cantidad" placeholder="Ingrese la cantidad"/>
 							    </div>
 							  </div>						  
 							  <div class="form-group"> 
 							    <div class="col-sm-2">
-							      <button type="button" class="btn btn-default">Guardar</button>
+							      <button type="button" class="btn btn-default" id="btnGuardar">Guardar</button>
 							    </div>
 							    <div class="col-sm-4">
-							      <button type="button" class="btn btn-default">Eliminar</button>
+							      <button type="button" class="btn btn-default" id="btnEliminar">Eliminar</button>
 							    </div>
 							  </div>
-							</form>
+							</form:form>
 						</div>
 					</div>		
 				</div>

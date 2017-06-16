@@ -25,7 +25,7 @@ public class ProductoDAOImpl implements ProductoDAO {
 	
 	@Override
 	public void guardarOActualizar(Producto producto) {
-		if(producto.getId() > 0){
+		if(!validarPorId(producto.getId())){
 			
 			String sql = "UPDATE productos SET Nombre=?, Descripcion=?, Precio=?, Cantidad=?, IdCategoria=? WHERE Id=?";
 			jdbcTemplate.update(sql, producto.getNombre(), producto.getDescripcion(), producto.getPrecio(), producto.getCantidad(), producto.getCategoria().getId(),producto.getId());
@@ -51,7 +51,7 @@ public class ProductoDAOImpl implements ProductoDAO {
 
 	@Override
 	public Producto obtener(int idProducto) {
-		String sql = "SELECT p.Id, p.Nombre, p.FechaIngreso,p.Descripcion,p.Precio,p.Estado,p.Cantidad,p.IdCategoria,c.Nombre NombreCategoria FROM productos p INNER JOIN categorias c ON p.IdCategoria=c.Id WHERE p.Id="+ idProducto;
+		String sql = "SELECT p.Id, p.Nombre, p.FechaIngreso,p.Descripcion,p.Precio,p.Estado,p.Cantidad,p.IdCategoria,c.Nombre NombreCategoria FROM productos p INNER JOIN categorias c ON p.IdCategoria=c.Id WHERE p.Estado=0 AND p.Id="+ idProducto;
 		return jdbcTemplate.query(sql, new ResultSetExtractor<Producto>() {
 
 			@Override
