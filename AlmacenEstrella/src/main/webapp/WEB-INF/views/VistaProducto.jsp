@@ -35,7 +35,7 @@
 						<form class="form-inline">
 						  <div class="form-group">
 						    <label for="id">Buscar:</label>
-						    <input type="id" class="form-control" id="idProducto">
+						    <input type="number" class="form-control" id="idProducto">
 						  </div>
 						  <button type="button" class="btn btn-default" id="btnBuscar">Buscar</button>
 						</form>
@@ -43,50 +43,50 @@
 				</div>
 				<div class="margenRow row">
 						<div class="col-md-8 col-md-offset-2">
-						<form:form action="guardarProducto" method="post" modelAttribute="producto" class="form-horizontal">
-						  <div class="form-group">
-						    <label class="control-label col-sm-2" for="nombre">Nombre:</label>
-						    <div class="col-sm-6">
-						      <Form:input path="nombre" type="nombre" class="form-control" id="nombre" placeholder="Ingrese el nombre">
-						    </div>
-						  </div>
-						  <div class="form-group">
-						    <label class="control-label col-sm-2" for="categoria">Categoria</label>
-						    <div class="col-sm-6"> 
-						      <select class="form-control" id="categoria" name="categoria">
-						        <option value="1">Hogar</option>
-						        <option value="2">Tecnologia</option>
-						        <option value="3">Moda</option>						        
-						      </select>
-						    </div>
-						  </div>
-						  <div class="form-group">
-						    <label class="control-label col-sm-2" for="descripcion">Descripcion:</label>
-						    <div class="col-sm-6"> 
-						      <input type="text" class="form-control" id="descripcion" placeholder="Ingrese la descripcion">
-						    </div>
-						  </div>
-						  <div class="form-group">
-						    <label class="control-label col-sm-2" for="precio">Precio:</label>
-						    <div class="col-sm-6"> 
-						      <input type="number" class="form-control" id="precio" placeholder="Ingrese el precio">
-						    </div>
-						  </div>
-						  <div class="form-group">
-						    <label class="control-label col-sm-2" for="cantidad">Cantidad:</label>
-						    <div class="col-sm-6"> 
-						      <input type="number" class="form-control" id="cantidad" placeholder="Ingrese la cantidad">
-						    </div>
-						  </div>						  
-						  <div class="form-group"> 
-						    <div class="col-sm-2">
-						      <button type="submit" class="btn btn-default">Guardar</button>
-						    </div>
-						    <div class="col-sm-4">
-						      <button type="submit" class="btn btn-default">Eliminar</button>
-						    </div>
-						  </div>
-						</form:form>
+							<form  class="form-horizontal">
+							  <div class="form-group">
+							    <label class="control-label col-sm-2" for="nombre">Nombre:</label>
+							    <div class="col-sm-6">
+							      <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre"/>
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <label class="control-label col-sm-2" for="categoria">Categoria</label>
+							    <div class="col-sm-6"> 
+							      <select class="form-control" id="categoria" >
+							        <option value="1" label="Hogar"/>
+							        <option value="2" label="Tecnologia"/>
+							        <option value="3" label="Moda"/>					        
+							      </select>
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <label class="control-label col-sm-2" for="descripcion">Descripcion:</label>
+							    <div class="col-sm-6"> 
+							      <input type="text" class="form-control" id="descripcion" placeholder="Ingrese la descripcion"/>
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <label class="control-label col-sm-2" for="precio">Precio:</label>
+							    <div class="col-sm-6"> 
+							      <input type="number" class="form-control" id="precio" placeholder="Ingrese el precio"/>
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <label class="control-label col-sm-2" for="cantidad">Cantidad:</label>
+							    <div class="col-sm-6"> 
+							      <input type="number" class="form-control" id="cantidad" placeholder="Ingrese la cantidad"/>
+							    </div>
+							  </div>						  
+							  <div class="form-group"> 
+							    <div class="col-sm-2">
+							      <button type="button" class="btn btn-default">Guardar</button>
+							    </div>
+							    <div class="col-sm-4">
+							      <button type="button" class="btn btn-default">Eliminar</button>
+							    </div>
+							  </div>
+							</form>
 						</div>
 					</div>		
 				</div>
