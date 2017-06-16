@@ -15,7 +15,7 @@
 <title>Ventas</title>
 
 </head>
-<body>
+<body onload="myFunction1()">
 		<nav class="navbar navbar-inverse">
 			  <div class="container-fluid">
 			    <div class="navbar-header">
@@ -68,7 +68,7 @@
 		<td>${producto.id }</td>
 		<td>${producto.nombre }</td>
 		<th>${producto.cantidad }</th>
-		<td>${producto.precio }</td>
+		<td>$${producto.precio }</td>
 		<td><a href="eliminar?index=${status.index}">x</a></td>
 		</tr>
 		<tr>
@@ -80,7 +80,7 @@
 	
 	</div>
 	
-	<label>Total: ${total }</label>
+	<label>Total: $${total }</label>
 	</c:if>
 	</div>
 	
