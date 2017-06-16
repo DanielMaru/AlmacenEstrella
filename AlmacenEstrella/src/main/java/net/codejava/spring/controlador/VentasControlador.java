@@ -97,7 +97,7 @@ public class VentasControlador {
 			if(!venta.getListaProductos().isEmpty()){
 				if(ventasNegocio.guardar(venta)){
 					error=true;
-					mensaje="Venta insertada con Ã©xito";
+					mensaje="Venta insertada con éxito";
 				}else{
 					error=true;
 					mensaje="La venta no ha sido registrada";
@@ -125,7 +125,7 @@ public class VentasControlador {
 		try{
 			if(ventasNegocio.eliminadoLogico(Integer.parseInt(id))){
 				error=true;
-				mensaje="Venta eliminada con Ã©xito";
+				mensaje="Venta eliminada con éxito";
 			}else{
 				error=true;
 				mensaje= "La venta no pudo ser eliminada";
