@@ -23,7 +23,13 @@ public class ReporteControlador {
 	@Autowired
 	private ReporteNegocio reporteNegocio;
 	
-	
+	@RequestMapping(value="/")
+	public ModelAndView home1(ModelAndView model) throws IOException{
+		
+		model.setViewName("Index");
+		
+		return model;
+	}
 	
 	@RequestMapping(value="/index")
 	public ModelAndView home(ModelAndView model) throws IOException{
@@ -40,7 +46,6 @@ public class ReporteControlador {
 	public ModelAndView listarVentas(ModelAndView model) throws IOException{
 		Calendar fecha = new GregorianCalendar();
 		int mes = fecha.get(Calendar.MONTH) + 1;
-		System.out.println(mes);
 		List<Venta> listaVentas = reporteNegocio.listarVentas(mes);
 		int sumaTotal = reporteNegocio.calcularTotal(listaVentas);
 		
@@ -50,7 +55,10 @@ public class ReporteControlador {
 		model.addObject("listaProducto", listaProducto);
 		model.addObject("sumaTotal", Integer.toString(sumaTotal));
 		model.setViewName("VistaReporte");
+
 		
 		return model;
 	}
+	
+    
 }
