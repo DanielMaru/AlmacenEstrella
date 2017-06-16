@@ -13,6 +13,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/animate.css" />" rel="stylesheet">
+  
     </head>
     <body  onload="myFunction1()">
       
@@ -84,17 +86,14 @@
 
 		}
 		
-		
-		
-	
-	    
+		 
 		
 	</script>
       
     <nav class="navbar navbar-inverse">
 			  <div class="container-fluid">
 			    <div class="navbar-header">
-			      <a class="navbar-brand" href="index"><img alt="logo" src="<c:url value="/resources/imagenes/fondo.png" />"></a>
+			      <a class="navbar-brand" href="index"><img class=" animated bounceInUp" alt="logo" src="<c:url value="/resources/imagenes/fondo.png" />"></a>
 			    </div>
 			    <ul class="nav navbar-nav">
 			      <li ><a href="index">Inicio</a></li>
@@ -119,7 +118,7 @@
     <div id="home" class="tab-pane fade in active">
       <h3>Reporte Ventas</h3>
       
-       <form align="center" class="form-inline">
+       <form align="center" class="form-inline " >
 		  <div class="form-group">
 		    <label >Seleccione el mes:</label>
 		    <select class="form-control" id="sel1"  onchange="myFunction()">
