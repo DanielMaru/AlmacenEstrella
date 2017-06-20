@@ -20,6 +20,8 @@ public interface ProductoDAO {
 	
 	public boolean validarPorNombre(String nombre);
 	
+	public void restablecer(Producto producto);
+	
 	public List<Producto> lista();
 
 }

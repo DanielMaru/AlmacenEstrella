@@ -96,7 +96,7 @@ public class ProductoDAOImpl implements ProductoDAO {
 	@Override
 	public boolean validarPorIdEliminado(int id) {
 		
-		String sqlValidarId = "select count(Id) cantidad FROM productos where id=? and estado='0'" ;
+		String sqlValidarId = "select count(Id) cantidad FROM productos where id=? and estado='1'" ;
 		
 		String cantidadDeIds = (String)jdbcTemplate.queryForObject(sqlValidarId, new Object[] { id }, String.class);
 		
@@ -126,6 +126,12 @@ public class ProductoDAOImpl implements ProductoDAO {
 		}		
 	}
 	
+	@Override
+	public void restablecer(Producto producto) {
+		
+		String sql = "UPDATE productos SET Nombre=?, Descripcion=?, Precio=?,Estado=0, Cantidad=?, IdCategoria=? WHERE Id=?";
+		jdbcTemplate.update(sql, producto.getNombre(), producto.getDescripcion(), producto.getPrecio(), producto.getCantidad(), producto.getCategoria().getId(),producto.getId());
+	}
 	
 
 	@Override

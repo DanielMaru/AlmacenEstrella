@@ -4,9 +4,32 @@ $( document ).ready(function() {
 	
 	$('#formularioBuscar').hide();
 	
-	$("#btnBuscar").click(function(){
-	    $.ajax({url: "http://localhost:8080/AlmacenEstrella/obtener?id="+$('#idProducto').val(), success: function(result){	       
-	    	   	
+	$("#btnBuscar").click(obtenerProducto);
+	
+	$('#idProducto').keypress(function (e) {
+		  if (e.which == 13) {
+		    obtenerProducto();
+		    return false;    //<---- Add this line
+		  }
+		});
+	
+//	$('#btnGuardar').click(function(){
+//		$('#producto').submit();
+//	});
+	
+	$('#btnEliminar').click(function(){
+		$('#formularioBuscar').attr('action', 'eliminarProducto');
+		$('#formularioBuscar').attr('method', 'get');
+		$('#formularioBuscar').submit();
+//		alert($("#id").val());
+//		$.get("http://localhost:8080/AlmacenEstrella/eliminarProducto?id="+$("#idBuscar").val());
+	});
+		
+});
+
+function obtenerProducto(){
+	 $.ajax({url: "http://localhost:8080/AlmacenEstrella/obtener?id="+$('#idProducto').val(), success: function(result){	       
+ 	   	
 	    	var Producto = result;
 	    	
 	    	if(!Producto){
@@ -28,20 +51,6 @@ $( document ).ready(function() {
 	    	
 	        
 	    }});
-	});
-	
-//	$('#btnGuardar').click(function(){
-//		$('#producto').submit();
-//	});
-	
-	$('#btnEliminar').click(function(){
-		$('#formularioBuscar').attr('action', 'eliminarProducto');
-		$('#formularioBuscar').attr('method', 'get');
-		$('#formularioBuscar').submit();
-//		alert($("#id").val());
-//		$.get("http://localhost:8080/AlmacenEstrella/eliminarProducto?id="+$("#idBuscar").val());
-	});
-		
-});
+}
 
 
