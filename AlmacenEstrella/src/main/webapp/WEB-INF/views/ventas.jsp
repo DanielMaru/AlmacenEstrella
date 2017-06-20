@@ -13,6 +13,7 @@
 <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Ventas</title>
+ <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
 
 </head>
 <body onload="myFunction1()">
