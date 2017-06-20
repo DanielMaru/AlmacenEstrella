@@ -84,7 +84,7 @@ public class VentasDAOImpl implements VentasDAO{
 				
 				Producto productoBd = productoDAO.obtener(producto.getId());
 				productoBd.setCantidad(productoBd.getCantidad()-producto.getCantidad());
-				productoDAO.guardarOActualizar(productoBd);
+				productoDAO.actualizar(productoBd);
 			});
 			retorno = true;
 		}
