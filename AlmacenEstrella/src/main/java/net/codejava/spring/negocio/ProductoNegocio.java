@@ -28,8 +28,17 @@ public class ProductoNegocio {
 		String mensaje="";
 		
 		if(!productoDAO.validarPorId(producto.getId())){			
-			mensaje="El ID ya existe";
-			return mensaje;
+//			mensaje="El ID ya existe";
+//			return mensaje;
+			if(!productoDAO.validarPorIdEliminado(producto.getId())){
+				mensaje="El ID ya existe pero esta eliminado, desea restablecerlo";
+				return mensaje;
+			}
+			else{
+				mensaje="El ID ya existe y esta en uso";
+				return mensaje;
+			}
+			
 		}
 		else if(!productoDAO.validarPorNombre(producto.getNombre())){
 			

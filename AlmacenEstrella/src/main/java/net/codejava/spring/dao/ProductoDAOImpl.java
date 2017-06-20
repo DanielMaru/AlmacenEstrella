@@ -81,6 +81,21 @@ public class ProductoDAOImpl implements ProductoDAO {
 	@Override
 	public boolean validarPorId(int id) {
 		
+		String sqlValidarId = "select count(Id) cantidad FROM productos where id=?" ;
+		
+		String cantidadDeIds = (String)jdbcTemplate.queryForObject(sqlValidarId, new Object[] { id }, String.class);
+		
+		
+		if(cantidadDeIds.equals("1")){
+			return false;	
+		}
+		else{
+			return true;
+		}		
+	}
+	@Override
+	public boolean validarPorIdEliminado(int id) {
+		
 		String sqlValidarId = "select count(Id) cantidad FROM productos where id=? and estado='0'" ;
 		
 		String cantidadDeIds = (String)jdbcTemplate.queryForObject(sqlValidarId, new Object[] { id }, String.class);

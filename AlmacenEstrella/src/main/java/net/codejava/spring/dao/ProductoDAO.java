@@ -16,6 +16,8 @@ public interface ProductoDAO {
 	
 	public boolean validarPorId(int id);
 	
+	public boolean validarPorIdEliminado(int id);
+	
 	public boolean validarPorNombre(String nombre);
 	
 	public List<Producto> lista();
