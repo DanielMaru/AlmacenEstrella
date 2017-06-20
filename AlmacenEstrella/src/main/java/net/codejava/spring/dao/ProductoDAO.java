@@ -6,7 +6,9 @@ import net.codejava.spring.modelo.Producto;
 
 public interface ProductoDAO {
 	
-	public void guardarOActualizar(Producto producto);
+	public void guardar(Producto producto);
+	
+	public void actualizar(Producto producto);
 	
 	public void eliminar(int producto);
 	

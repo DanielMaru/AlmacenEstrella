@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 import net.codejava.spring.dao.ProductoDAO;
 import net.codejava.spring.modelo.Producto;
@@ -23,26 +24,32 @@ public class ProductoNegocio {
 		return productoDAO.lista();
 	}
 	
-	public String guardarOActualizar(Producto producto){
+	public String guardar(Producto producto){
 		String mensaje="";
-		if(producto.getId() > 0){
-			productoDAO.guardarOActualizar(producto);
+		
+		if(!productoDAO.validarPorId(producto.getId())){			
+			mensaje="El ID ya existe";
+			return mensaje;
+		}
+		else if(!productoDAO.validarPorNombre(producto.getNombre())){
+			
+			mensaje="El nombre ya existe";
+			return mensaje;
 		}
 		else{
-			if(!productoDAO.validarPorId(producto.getId())){
-				
-				mensaje = "Ya existe el id"; 
-				productoDAO.guardarOActualizar(producto);
-			}
-			else if(!productoDAO.validarPorNombre(producto.getNombre())){
-				mensaje = "El nombre ya existe"; 
-			}
-			else{
-				productoDAO.guardarOActualizar(producto);
-			}
-			
+			productoDAO.guardar(producto);
+			mensaje="Almacenado correctamente";
+			return mensaje;
 		}
+	}
+	
+	public String actualizar(Producto producto){
+		
+		String mensaje="";			
+		productoDAO.actualizar(producto);
+		mensaje="Almacenado correctamente";
 		return mensaje;
+		
 	}
 	public void eliminar(int idProducto ){
 		productoDAO.eliminar(idProducto);

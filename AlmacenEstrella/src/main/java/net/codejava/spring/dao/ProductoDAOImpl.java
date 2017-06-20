@@ -24,20 +24,18 @@ public class ProductoDAOImpl implements ProductoDAO {
 	   
 	
 	@Override
-	public void guardarOActualizar(Producto producto) {
-		if(!validarPorId(producto.getId())){
+	public void guardar(Producto producto) {		
 			
-			String sql = "UPDATE productos SET Nombre=?, Descripcion=?, Precio=?, Cantidad=?, IdCategoria=? WHERE Id=?";
-			jdbcTemplate.update(sql, producto.getNombre(), producto.getDescripcion(), producto.getPrecio(), producto.getCantidad(), producto.getCategoria().getId(),producto.getId());
-		}
-		else{
-			
-			String sql = "INSERT INTO productos (Id, Nombre, FechaIngreso, Descripcion, Precio, Estado, Cantidad, IdCategoria) VALUES (?, ?, NOW(), ?, ?, 0, ?, ?)";
-			jdbcTemplate.update(sql, producto.getId(), producto.getNombre(), producto.getDescripcion(), producto.getPrecio(), producto.getCantidad(), producto.getCategoria().getId());
-			
-		}
+		String sql = "INSERT INTO productos (Id, Nombre, FechaIngreso, Descripcion, Precio, Estado, Cantidad, IdCategoria) VALUES (?, ?, NOW(), ?, ?, 0, ?, ?)";
+		jdbcTemplate.update(sql, producto.getId(), producto.getNombre(), producto.getDescripcion(), producto.getPrecio(), producto.getCantidad(), producto.getCategoria().getId());
+					
+	}
+	@Override
+	public void actualizar(Producto producto) {				
 		
-		
+		String sql = "UPDATE productos SET Nombre=?, Descripcion=?, Precio=?, Cantidad=?, IdCategoria=? WHERE Id=?";
+		jdbcTemplate.update(sql, producto.getNombre(), producto.getDescripcion(), producto.getPrecio(), producto.getCantidad(), producto.getCategoria().getId(),producto.getId());
+			
 	}
 
 	@Override
