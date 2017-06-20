@@ -46,7 +46,7 @@
 		<!-- <label>Ingrese codigo del producto</label>-->
 		<input type="text"   id="codigo"  name="codigo" placeholder="Id del producto"   class="form-control" required >
 		<!-- <label>Ingrese cantidad</label>-->
-		<input type="text"  id="cantidad"  name="cantidad" placeholder="Ingrese cantidad"  class="form-control"  required >
+		<input type="number"  id="cantidad"  name="cantidad" placeholder="Ingrese cantidad"  class="form-control"  required >
 		
 		<input class="btn" type="submit" value="Agregar Producto" />
 		
