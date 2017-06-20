@@ -43,8 +43,10 @@ public class VentasNegocio {
 			throw new Exception("Id no valido");
 		}
 		
-		if(!(producto.getCantidad()>=cantidad)){
-			throw new Exception("Solo hay "+producto.getCantidad()+" unidades de este producto");
+		if(producto!=null){
+			if(!(producto.getCantidad()>=cantidad)){
+				throw new Exception("Solo hay "+producto.getCantidad()+" unidades de este producto");
+			}
 		}
 		
 		
