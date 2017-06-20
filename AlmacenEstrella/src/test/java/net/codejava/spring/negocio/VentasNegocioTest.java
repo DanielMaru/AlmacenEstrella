@@ -36,12 +36,6 @@ public class VentasNegocioTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		DriverManagerDataSource datasource = new DriverManagerDataSource();
-		datasource.setDriverClassName("com.mysql.jdbc.Driver");
-		datasource.setUrl("jdbc:mysql://localhost:3306/estrella");
-		datasource.setUsername("root");
-		datasource.setPassword("");
-		
 		
 		ventasNegocio = new VentasNegocio(ventasDAO, productoDAO);
 		
