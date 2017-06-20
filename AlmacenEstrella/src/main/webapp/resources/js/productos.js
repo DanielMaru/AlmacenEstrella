@@ -2,6 +2,8 @@ $( document ).ready(function() {
 	
 	//$('#idBuscar').attr('readonly', true);
 	
+	$('#formularioBuscar').hide();
+	
 	$("#btnBuscar").click(function(){
 	    $.ajax({url: "http://localhost:8080/AlmacenEstrella/obtener?id="+$('#idProducto').val(), success: function(result){	       
 	    	   	
@@ -19,6 +21,7 @@ $( document ).ready(function() {
 		    	$("#precio").val(Producto.precio);
 		    	$("#cantidad").val(Producto.cantidad);
 		    	$("#fecha").val(Producto.fechaIngreso);
+		    	$('#formularioBuscar').show();
 	    	}
 	    		
 	    	

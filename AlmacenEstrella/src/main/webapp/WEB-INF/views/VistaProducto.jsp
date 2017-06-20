@@ -45,9 +45,10 @@
 		    
 		    
 		    <div class="row">
-				<div class="col-md-6 col-md-offset-3">
+				<div class="col-md-10 col-md-offset-1">
 					<center><h1>Buscar Productos</h1></center>
 					<div class="margenRow row ">
+						
 						<div class="col-md-6 col-md-offset-3">
 							<form class="form-inline">
 							  <div class="form-group">
@@ -58,14 +59,16 @@
 							</form>
 						</div>					
 					</div>
+					
 					<div class="margenRow row">
+							
 							<div class="col-md-8 col-md-offset-2">
 								<form  action="actualizarProducto" method="post" id="formularioBuscar" class="form-horizontal">
 								
 								<div class="form-group">
 								    <label class="control-label col-sm-2" for="nombre">Id:</label>
 								    <div class="col-sm-6">
-								      <input path="id" type="number" name="id" class="form-control" id="idBuscar" placeholder="Ingrese el Id" readonly/>
+								      <input path="id" type="number" name="id" class="form-control" id="idBuscar" placeholder="Ingrese el Id" readonly required/>
 								    </div>
 								  </div>
 								  <div class="form-group">
@@ -110,16 +113,18 @@
 								  </div>
 								  						  
 								  <div class="form-group"> 
-								    <div class="col-sm-3">
+								    <div class="col-sm-3 col-md-offset-1">
 								      <button type="submit" class="btn btn-default" id="btnActualizar">Actualizar</button>
 								    </div>
-								    <div class="col-sm-3">
+								    <div class="col-sm-1">
 								      <button type="button" class="btn btn-default" id="btnEliminar">Eliminar</button>
 								    </div>
 								  </div>								  
 								</form>
 							</div>
-						</div>		
+							
+						</div>
+								
 					</div>
 				</div>		      
 			</div>
