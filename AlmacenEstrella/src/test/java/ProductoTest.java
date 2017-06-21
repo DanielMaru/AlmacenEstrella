@@ -32,18 +32,37 @@ public class ProductoTest {
 	public void verificarSiElIdDelProductoYaExiste() {
 		
 		//arrange
-		List<Producto> listaProducto = new ArrayList<>();
+		
 		Categoria categoria = new Categoria(1,"Hogar");
 		Producto producto1 = new Producto(1, "10/10/10","carro de mesa", 10000, 0, 10, "Carrito", categoria);
-		listaProducto.add(producto1);
+		
 		
 		//act
-		when(productoDAO.lista()).thenReturn(listaProducto);
-		Producto producto2 = new Producto(1, "10/10/10","carro de mesa", 10000, 0, 10, "Carrito", categoria);
-		String mensaje = productoNegocio.guardar(producto2);
+		when(productoDAO.validarPorId(producto1.getId())).thenReturn(false);
+		when(productoDAO.validarPorIdEliminado(producto1.getId())).thenReturn(true);
+		String mensaje = productoNegocio.guardar(producto1);
 		
 		//assert
-		assertEquals("El ID ya existe", mensaje);
+		assertEquals("El ID ya existe y esta en uso", mensaje);
 	}
+	
+	@Test
+	public void verificarSiElNombreYaExiste(){
+		
+		//arrange
+		
+		Categoria categoria = new Categoria(2, "Tecnologia");
+		Producto producto1 = new Producto(2, "03/05/2017", "Portatil", 300000, 0, 7, "PC", categoria);
+		
+		//act
+		when(productoDAO.validarPorNombre(producto1.getNombre())).thenReturn(false);
+		when(productoDAO.validarPorId(producto1.getId())).thenReturn(true);
+		
+		
+		String mensaje = productoNegocio.guardar(producto1);
+		//assert
+		assertEquals("El nombre ya existe", mensaje);
+	}
+	
 
 }
